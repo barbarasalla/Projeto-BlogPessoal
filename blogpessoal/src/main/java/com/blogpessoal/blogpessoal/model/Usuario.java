@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,14 +23,15 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "O atributo Nome é Obrigatório!")
+	@NotBlank(message = "O campo nome é obrigatório!")
 	private String nome;
 
-	@NotBlank(message = "O atributo Usuário é Obrigatório!")
-	@Email(message = "O atributo Usuário deve ser um email válido!")
+	@NotBlank(message = "O campo usuário é obrigatório!")
+	@Email(message = "Digite um email válido!")
 	private String usuario;
 
-	@NotBlank(message = "O atributo Senha é Obrigatório!")
+	@NotBlank(message = "O campo senha é obrigatório!")
+	@Size(min=5, message = "Sua senha deve conter no mínimo 5 caracteres!")
 	private String senha;
 
 	private String foto;

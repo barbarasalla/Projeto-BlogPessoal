@@ -14,7 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,8 +25,8 @@ public class Tema {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotNull(message="Esse campo precisa ser preenchido!")
+
+	@NotBlank(message="Esse campo precisa ser preenchido!")
 	private String descricao;
 	
 	@OneToMany (mappedBy = "tema" , cascade = CascadeType.REMOVE)	//Relacionar as postagens ligadas ao tema e Remover todas as postagens que estão relacionados com o tema quando o tema for apagado
