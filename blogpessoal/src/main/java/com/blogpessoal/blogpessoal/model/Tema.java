@@ -29,18 +29,9 @@ public class Tema {
 	@NotNull(message="Esse campo precisa ser preenchido!")
 	private String descricao;
 	
-	@OneToMany (mappedBy = "tema" , cascade = CascadeType.REMOVE)//Relacionar as postagens ligadas ao tema e Remover todas as postagens que estão relacionados com o tema quando o tema for apagado
+	@OneToMany (mappedBy = "tema" , cascade = CascadeType.REMOVE)	//Relacionar as postagens ligadas ao tema e Remover todas as postagens que estão relacionados com o tema quando o tema for apagado
 	@JsonIgnoreProperties("tema")
-	private List<Postagem> postagem;		//Retorno precisa ser lista que reverencia "muitos"
-	
-
-	public List<Postagem> getPostagem() {
-		return postagem;
-	}
-
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
-	}
+	private List<Postagem> postagem;	//Retorno precisa ser lista que reverencia "muitos"
 
 	public Long getId() {
 		return id;
@@ -58,4 +49,11 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
 }

@@ -10,6 +10,7 @@ import com.blogpessoal.blogpessoal.model.Usuario;
 
 
 public class UserDetailsImpl implements UserDetails {
+	
 	private static final long serialVersionUID = 1L;
 
 	private String userName;
@@ -21,7 +22,6 @@ public class UserDetailsImpl implements UserDetails {
 		this.userName = usuario.getUsuario();
 		this.password = usuario.getSenha();
 	}
-
 
 	public UserDetailsImpl() {	}
 
@@ -41,28 +41,22 @@ public class UserDetailsImpl implements UserDetails {
 		return userName;
 	}
 
-
-
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
 
-	
 
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
-
-
 	
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
-	
 	@Override
 	public boolean isEnabled() {
 		return true;
