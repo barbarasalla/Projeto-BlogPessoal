@@ -34,9 +34,25 @@ public class Usuario {
 	@Size(min=5, message = "Sua senha deve conter no mínimo 5 caracteres!")
 	private String senha;
 
-	private String foto;
-
+	private String foto;	
 	
+	@NotBlank(message = "O campo senha é obrigatório!")
+	private String tipo;
+	
+	public Usuario(Long id, String nome, String usuario, String senha, String foto, String tipo) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+		this.tipo= tipo;
+	}
+	
+	public Usuario() {
+		super();
+	}
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
@@ -79,6 +95,14 @@ public class Usuario {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public List<Postagem> getPostagem() {
