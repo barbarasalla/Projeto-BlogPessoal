@@ -34,6 +34,8 @@ public class Postagem {
 		@UpdateTimestamp
 		private LocalDateTime data;
 		
+		private String foto;
+		
 		@ManyToOne							//Muitos para 1
 		@JsonIgnoreProperties("postagem")	//Ignora o chamado e relaciona o atributo para vir junto com os outros no formato Json
 		private Tema tema;				//NÃO ESQUECER DE FAZER OS GETs E SETs
@@ -90,6 +92,13 @@ public class Postagem {
 	        this.data = data;
 	    }
 
+		public String getFoto() {
+			return foto;
+		}
+
+		public void setFoto(String foto) {
+			this.foto = foto;
+		}
 }
 
 
